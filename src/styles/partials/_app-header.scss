@@ -1,0 +1,28 @@
+.header {
+  height: 100vh;
+
+  &--flex {
+    display: flex;
+  }
+
+  &__content {
+    padding: 0 1rem;
+
+    @include md() {
+      padding: 0;
+    }
+  }
+
+  &__title {
+    font-size: 48px;
+    font-weight: 900;
+    color: $marineBlue;
+  }
+
+  &__sub-title {
+    font-size: 20px;
+    font-weight: 700;
+    font-weight: 20px;
+    color: $marineBlue;
+  }
+}

@@ -1,4 +1,11 @@
 @import "partials/reset";
 @import "partials/customs";
 @import "partials/font";
-@import "partials/container";
+@import "partials/wrapper";
+@import "partials/app-header";
+@import "partials/app-button";
+@import "partials/app-navbar";
+
+// Globals
+@import "globals/spacing";
+@import "globals/alignment";

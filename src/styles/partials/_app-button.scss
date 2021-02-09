@@ -1,0 +1,23 @@
+.app-button {
+  width: 100%;
+  padding: 18px 8px;
+  background: $marineBlue;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 3px;
+  transition: all 0.2s ease-in-out;
+
+  @include md() {
+    width: 200px;
+  }
+
+  @include lg() {
+    &:hover {
+      background: $gray;
+    }
+  }
+}

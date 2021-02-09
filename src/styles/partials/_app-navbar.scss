@@ -1,0 +1,14 @@
+.navbar {
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  padding: 2rem;
+  position: absolute;
+
+  &__login {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 0 auto;
+  }
+}
