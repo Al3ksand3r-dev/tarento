@@ -7,13 +7,13 @@
     >
       <div class="form__col">
         <label
-          for="input"
           class="form__label"
           v-show="textField === idx + 1"
           v-for="(label, idx) in labels"
+          :for="idx"
           :key="idx"
           >{{ label }}</label
-        ><input type="text" id="input" class="form__text-field" />
+        ><input type="text" :id="idx" class="form__text-field" />
       </div>
     </div>
     <button class="form__submit">{{ buttonLabel }}</button>

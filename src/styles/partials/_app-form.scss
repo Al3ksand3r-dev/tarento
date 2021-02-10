@@ -1,0 +1,21 @@
+.form {
+  &__row {
+    &--flex {
+      display: flex;
+    }
+  }
+
+  &__col {
+  }
+
+  &__label {
+    display: inline-block;
+  }
+
+  &__text-field {
+    width: 100%;
+  }
+
+  &__submit {
+  }
+}
