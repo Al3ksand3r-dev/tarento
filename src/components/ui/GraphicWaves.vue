@@ -33,6 +33,7 @@ export default {};
   position: absolute;
   bottom: 0;
   left: 0;
+  z-index: -1;
   width: 100%;
   overflow: hidden;
   line-height: 0;
@@ -43,8 +44,12 @@ export default {};
   position: relative;
   display: block;
   width: calc(202% + 1.3px);
-  height: 150px;
+  height: 50px;
   transform: rotateY(180deg);
+
+  @include md() {
+    height: 150px;
+  }
 }
 
 .custom-shape-divider-bottom-1612908411 .shape-fill {

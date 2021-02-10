@@ -5,14 +5,6 @@
     display: flex;
   }
 
-  &__content {
-    padding: 0 1rem;
-
-    @include md() {
-      padding: 0;
-    }
-  }
-
   &__title {
     font-size: 48px;
     font-weight: 900;

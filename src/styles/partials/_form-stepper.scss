@@ -1,0 +1,59 @@
+.form {
+  margin: auto;
+  max-width: 400px;
+
+  &__title {
+    font-size: 16px;
+    padding: 0 0 1rem;
+    text-align: center;
+    color: $marineBlue;
+
+    @include md() {
+      font-size: 18px;
+      padding: 0 0 5rem;
+    }
+  }
+
+  &__row {
+    &--flex {
+      display: flex;
+    }
+  }
+
+  &__col {
+  }
+
+  &__label {
+    font-weight: 600;
+    font-size: 14px;
+    color: $marineBlue;
+    display: inline-block;
+  }
+
+  &__text-field {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 15px;
+    border-radius: 3px;
+    border: 1px solid #ddd;
+
+    &:focus {
+      border-color: $marineBlue;
+    }
+  }
+
+  &__submit {
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    padding: 13px 15px;
+    border: none;
+    background: $marineBlue;
+    color: #fff;
+    border-radius: 3px;
+
+    &:disabled {
+      background: $gray;
+    }
+  }
+}
