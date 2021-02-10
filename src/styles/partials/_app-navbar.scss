@@ -7,8 +7,10 @@
   position: absolute;
 
   &__login {
+    padding: 5px;
     font-size: 28px;
     font-weight: 700;
     margin: 0 0 0 auto;
+    cursor: pointer;
   }
 }

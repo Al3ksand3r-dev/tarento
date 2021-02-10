@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div>
     <app-navbar />
     <router-view />
     <graphic-waves />

@@ -16,12 +16,12 @@
 
 <script>
 import AppButton from "../ui/AppButton.vue";
-
+import router from "@/router";
 export default {
   name: "AppHeader",
   components: { AppButton },
   setup() {
-    const handleClick = () => console.log("Clicked");
+    const handleClick = () => router.push({ name: "Signup" });
     return {
       handleClick,
     };
