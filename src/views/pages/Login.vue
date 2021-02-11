@@ -36,12 +36,17 @@
         >
       </form>
     </div>
+    <loading-screen />
   </div>
 </template>
 
 <script>
 import { ref, computed } from "vue";
+import LoadingScreen from "../../components/layout/LoadingScreen.vue";
+import store from "@/store";
+
 export default {
+  components: { LoadingScreen },
   name: "Login",
   setup() {
     const input = ref({
@@ -50,10 +55,25 @@ export default {
     });
 
     const completed = computed(() => {
-      return input.value.email !== "" && input.value.password !== "";
+      return (
+        input.value.email !== "" &&
+        validEmail(input.value.email) &&
+        input.value.password !== ""
+      );
     });
 
-    const handleSubmit = () => console.log(input.value);
+    const validEmail = (email) => {
+      var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    };
+
+    const handleSubmit = () => {
+      setTimeout(() => {
+        store.commit("SET_LOADING");
+      }, 2000);
+      console.log(input.value);
+      store.commit("SET_LOADING");
+    };
 
     return { input, handleSubmit, completed };
   },

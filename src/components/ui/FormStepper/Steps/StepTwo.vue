@@ -7,6 +7,7 @@
         class="form__text-field"
         id="Email"
         v-model="inputModel.email"
+        placeholder="example@example.com"
       />
     </div>
   </div>
@@ -27,6 +28,7 @@ export default {
       get: () => props.input,
       set: (val) => emit("inputValue", val),
     });
+
     return { inputModel };
   },
 };

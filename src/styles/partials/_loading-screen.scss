@@ -1,0 +1,47 @@
+.loading {
+  min-width: 100%;
+  min-height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  background: rgba(#ddd, 0.7);
+  opacity: 0;
+  visibility: hidden;
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &__spinner {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    margin: auto;
+    border-radius: 50%;
+    position: relative;
+    border: 5px solid $marineBlue;
+    border-color: #ddd $marineBlue #ddd $marineBlue;
+    animation: spinner 0.8s infinite linear;
+  }
+
+  &__text {
+    top: 50%;
+    left: 50%;
+    font-weight: 600;
+    position: fixed;
+    letter-spacing: 1px;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes spinner {
+  from {
+    transform: rotate(0) translate();
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

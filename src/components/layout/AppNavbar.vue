@@ -1,6 +1,9 @@
 <template>
   <nav class="navbar">
-    <span class="lnr lnr-user navbar__login"></span>
+    <span
+      class="lnr lnr-user navbar__login"
+      @click="$router.push({ name: 'Home' }).catch(() => {})"
+    ></span>
   </nav>
 </template>
 
