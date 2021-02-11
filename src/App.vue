@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrapper">
     <app-navbar />
     <router-view v-slot="{ Component }">
       <transition name="slide-fade" mode="out-in">

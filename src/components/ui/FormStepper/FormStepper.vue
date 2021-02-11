@@ -12,14 +12,14 @@
       @click.prevent="next"
       :disabled="!completed"
     >
-      Next
+      Nästa
     </button>
     <button
       class="form__submit m-top-20"
       v-if="step === 2 || step === 3"
       @click.prevent="prev"
     >
-      Previous
+      Föregående
     </button>
     <button
       class="form__submit m-top-20"
@@ -27,11 +27,11 @@
       :disabled="!completed"
       @click.prevent="handleSubmit"
     >
-      Submit
+      Skapa konto
     </button>
     <span class="form__link"
       >Har redan ett konto?
-      <router-link to="/login">Logga in.</router-link></span
+      <router-link to="/login">Logga in här.</router-link></span
     >
   </form>
 </template>
