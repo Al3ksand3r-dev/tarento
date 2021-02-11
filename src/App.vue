@@ -1,7 +1,11 @@
 <template>
   <div>
     <app-navbar />
-    <router-view />
+    <router-view v-slot="{ Component }">
+      <transition name="slide-fade" mode="out-in">
+        <component :is="Component"></component>
+      </transition>
+    </router-view>
     <graphic-waves />
   </div>
 </template>
