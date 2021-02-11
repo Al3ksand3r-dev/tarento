@@ -54,6 +54,22 @@
 
     &:disabled {
       background: #ccc;
+      cursor: default;
+    }
+  }
+
+  &__link {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    padding: 20px 0 0;
+    color: #111;
+    font-size: 14px;
+
+    a {
+      text-decoration: underline;
+      color: $marineBlue;
+      font-weight: 600;
     }
   }
 }
