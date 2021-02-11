@@ -27,6 +27,23 @@
             />
           </div>
         </div>
+        <div class="form__row m-top-10">
+          <div class="form__col form__col--flex">
+            <input
+              class="form__checkbox"
+              id="RememberMe"
+              v-model="input.remember"
+              type="checkbox"
+              :disabled="!completed"
+              @change="handleChange"
+            />
+            <label
+              for="RememberMe"
+              class="form__label form__label--small p-left-5"
+              >Kom ihåg mig!</label
+            >
+          </div>
+        </div>
         <button class="form__submit m-top-20" :disabled="!completed">
           Logga in
         </button>
@@ -41,10 +58,10 @@
 </template>
 
 <script>
-import { ref, computed } from "vue";
+import { ref, computed, watchEffect } from "vue";
 import LoadingScreen from "../../components/layout/LoadingScreen.vue";
 import store from "@/store";
-
+import bcrypt from "bcryptjs";
 export default {
   components: { LoadingScreen },
   name: "Login",
@@ -52,7 +69,10 @@ export default {
     const input = ref({
       email: "",
       password: "",
+      remember: false,
     });
+
+    const storedPassword = ref("");
 
     const completed = computed(() => {
       return (
@@ -60,6 +80,36 @@ export default {
         validEmail(input.value.email) &&
         input.value.password !== ""
       );
+    });
+
+    const handleChange = async () => {
+      if (input.value.remember) {
+        storedPassword.value = input.value.password;
+        localStorage.setItem(
+          "credentials",
+          JSON.stringify({
+            email: input.value.email,
+            password: await bcrypt.hash(input.value.password, 10),
+            remember: input.value.remember,
+          })
+        );
+      } else {
+        localStorage.removeItem("credentials");
+      }
+    };
+
+    watchEffect(async () => {
+      const credentials = JSON.parse(localStorage.getItem("credentials"));
+      if (credentials) {
+        input.value = {
+          email: credentials.email,
+          password: await bcrypt.compare(
+            storedPassword.value,
+            credentials.password
+          ),
+          remember: credentials.remember,
+        };
+      }
     });
 
     const validEmail = (email) => {
@@ -75,7 +125,7 @@ export default {
       store.commit("SET_LOADING");
     };
 
-    return { input, handleSubmit, completed };
+    return { input, handleSubmit, completed, handleChange };
   },
 };
 </script>

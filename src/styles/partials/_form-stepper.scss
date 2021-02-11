@@ -21,6 +21,10 @@
   }
 
   &__col {
+    &--flex {
+      display: flex;
+      align-items: center;
+    }
   }
 
   &__label {
@@ -28,6 +32,10 @@
     font-size: 14px;
     color: $marineBlue;
     display: block;
+
+    &--small {
+      font-size: 12px;
+    }
   }
 
   &__text-field {
