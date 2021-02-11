@@ -1,9 +1,11 @@
 <template>
   <form class="form">
     <h1 class="form__title">Skapa ett konto för att komma igång.</h1>
-    <step-one v-model="input" :input="input" v-if="step === 1" />
-    <step-two v-model="input" :input="input" v-if="step === 2" />
-    <step-three v-model="input" :input="input" v-if="step === 3" />
+    <transition name="slide-fade" mode="out-in">
+      <step-one v-model="input" :input="input" v-if="step === 1" />
+      <step-two v-model="input" :input="input" v-else-if="step === 2" />
+      <step-three v-model="input" :input="input" v-else />
+    </transition>
     <button
       class="form__submit m-top-20"
       v-if="step === 1 || step === 2"
