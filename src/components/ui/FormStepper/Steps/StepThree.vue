@@ -1,7 +1,7 @@
 <template>
   <div class="form__row">
     <div class="form__col">
-      <label for="Password" class="form__label">Ange lösenord</label>
+      <label for="Password" class="form__label p-bottom-5">Ange lösenord</label>
       <input
         class="form__text-field"
         id="Password"
@@ -10,7 +10,9 @@
       />
     </div>
     <div class="form__col">
-      <label for="RepeatPassword" class="form__label">Repetera lösenord</label>
+      <label for="RepeatPassword" class="form__label m-top-10 p-bottom-5"
+        >Repetera lösenord</label
+      >
       <input
         class="form__text-field"
         id="RepeatPassword"

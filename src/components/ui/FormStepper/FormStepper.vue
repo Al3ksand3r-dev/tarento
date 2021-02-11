@@ -1,5 +1,6 @@
 <template>
   <form class="form">
+    <h1 class="form__title">Skapa ett konto för att komma igång.</h1>
     <step-one :input="input" v-if="step === 1" />
     <step-two :input="input" v-if="step === 2" />
     <step-three :input="input" v-if="step === 3" />
@@ -7,19 +8,18 @@
       class="form__submit m-top-20"
       v-if="step === 1 || step === 2"
       @click.prevent="next"
-      :disabled="input.length > 0"
     >
       Next
     </button>
     <button
-      class="form__submit"
+      class="form__submit m-top-20"
       v-if="step === 2 || step === 3"
       @click.prevent="prev"
     >
-      prev
+      Previous
     </button>
     <button
-      class="form__submit"
+      class="form__submit m-top-20"
       v-if="step === 3"
       @click.prevent="handleSubmit"
     >

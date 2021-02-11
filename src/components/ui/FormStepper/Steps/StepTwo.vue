@@ -1,7 +1,7 @@
 <template>
   <div class="form__row">
     <div class="form__col">
-      <label for="Email" class="form__label">Email</label>
+      <label for="Email" class="form__label p-bottom-5">Email</label>
       <input
         type="text"
         class="form__text-field"
