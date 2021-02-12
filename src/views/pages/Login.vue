@@ -53,7 +53,7 @@
         >
       </form>
     </div>
-    <loading-screen />
+    <loading-screen loadingText="Loggar in..." />
   </div>
 </template>
 
