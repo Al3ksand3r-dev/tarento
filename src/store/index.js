@@ -10,7 +10,6 @@ export default createStore({
     SET_LOADING: (state) => (state.loading = !state.loading),
     SET_USER_DATA(state, userData) {
       state.user = userData;
-      console.log(state.user);
     },
   },
   actions: {

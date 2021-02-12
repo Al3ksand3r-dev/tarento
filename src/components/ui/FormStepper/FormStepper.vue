@@ -42,6 +42,7 @@ import StepOne from "./Steps/StepOne.vue";
 import StepTwo from "./Steps/StepTwo.vue";
 import StepThree from "./Steps/StepThree.vue";
 import store from "@/store";
+import router from "@/router";
 
 export default {
   components: { StepOne, StepTwo, StepThree },
@@ -79,7 +80,9 @@ export default {
     };
 
     const handleSubmit = () => {
-      store.dispatch("registerUser", input.value);
+      store
+        .dispatch("registerUser", input.value)
+        .then(() => router.push({ name: "Dashboard" }));
     };
 
     return { input, handleSubmit, step, next, prev, completed };
