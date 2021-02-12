@@ -79,11 +79,7 @@ export default {
     };
 
     const handleSubmit = () => {
-      setTimeout(() => {
-        store.commit("SET_LOADING");
-      }, 2000);
-      console.log(input.value);
-      store.commit("SET_LOADING");
+      store.dispatch("registerUser", input.value);
     };
 
     return { input, handleSubmit, step, next, prev, completed };
