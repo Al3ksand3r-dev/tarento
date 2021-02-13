@@ -1,6 +1,10 @@
 <template>
   <div class="wrapper__content">
-    <app-header />
+    <app-header
+      buttonLabel="Kom igång!"
+      title="Välkommen till Tarento!"
+      subTitle="Få bättre översikt över dina timmar."
+    />
   </div>
 </template>
 

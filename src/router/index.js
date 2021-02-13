@@ -21,7 +21,7 @@ const routes = [
     path: "/dashboard",
     name: "Dashboard",
     component: () => import("@/views/pages/Dashboard.vue"),
-    meta: { authenticated: true },
+    meta: { requiresAuth: true },
   },
 ];
 
@@ -31,8 +31,8 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const loggedIn = localStorage.getItem("user");
-  if (to.matched.some((route) => route.meta.authenticated && !loggedIn)) {
+  const loggedIn = JSON.parse(localStorage.getItem("__user__"));
+  if (to.matched.some((route) => route.meta.requiresAuth && !loggedIn)) {
     next("/");
   } else {
     next();

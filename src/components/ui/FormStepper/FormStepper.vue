@@ -80,9 +80,13 @@ export default {
     };
 
     const handleSubmit = () => {
-      store
-        .dispatch("registerUser", input.value)
-        .then(() => router.push({ name: "Dashboard" }));
+      store.commit("SET_LOADING");
+      setTimeout(() => {
+        store.dispatch("registerUser", input.value).then(() => {
+          router.push({ name: "Dashboard" });
+          store.commit("SET_LOADING");
+        });
+      }, 2000);
     };
 
     return { input, handleSubmit, step, next, prev, completed };

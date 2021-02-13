@@ -1,12 +1,10 @@
 <template>
   <header class="header header--flex">
     <section class="header__content header__content mar-auto text-center">
-      <h1 class="header__title">Välkommen till Tarento!</h1>
-      <p class="header__sub-title p-top-10">
-        Få bättre översikt över dina timmar.
-      </p>
+      <h1 class="header__title">{{ title }}</h1>
+      <p class="header__sub-title p-top-10">{{ subTitle }}</p>
       <app-button
-        label="Kom igång!"
+        :label="buttonLabel"
         :handleClick="handleClick"
         class="m-top-20"
       />
@@ -20,6 +18,20 @@ import router from "@/router";
 export default {
   name: "AppHeader",
   components: { AppButton },
+  props: {
+    title: {
+      type: String,
+      default: null,
+    },
+    subTitle: {
+      type: String,
+      default: null,
+    },
+    buttonLabel: {
+      type: String,
+      default: "Click",
+    },
+  },
   setup() {
     const handleClick = () => router.push({ name: "Signup" });
     return {
