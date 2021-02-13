@@ -1,5 +1,6 @@
 import { createStore } from "vuex";
 import { registerUser } from "@/Services/UserServices";
+import axios from "axios";
 
 export default createStore({
   state: {
@@ -10,6 +11,10 @@ export default createStore({
     SET_LOADING: (state) => (state.loading = !state.loading),
     SET_USER_DATA(state, userData) {
       state.user = userData;
+      axios.defaults.headers.common[
+        "Authorization"
+      ] = `Bearer ${userData.token}`;
+      localStorage.setItem("__user__", JSON.stringify(userData));
     },
   },
   actions: {

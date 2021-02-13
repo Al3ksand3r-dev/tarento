@@ -1,5 +1,7 @@
 const { usersDB } = require("../functions/UserFunction");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+require("dotenv/config");
 
 module.exports = {
   async createOne({ firstName, lastName, email, password }) {
@@ -12,9 +14,18 @@ module.exports = {
       createdAt: new Date().toLocaleString(),
     });
 
+    const token = jwt.sign(
+      {
+        name: newUser.name,
+        email: newUser.email,
+      },
+      process.env.SECRET
+    );
+
     return {
       name: newUser.name,
       email: newUser.email,
+      token,
     };
   },
 };

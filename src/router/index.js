@@ -21,12 +21,22 @@ const routes = [
     path: "/dashboard",
     name: "Dashboard",
     component: () => import("@/views/pages/Dashboard.vue"),
+    meta: { authenticated: true },
   },
 ];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  const loggedIn = localStorage.getItem("user");
+  if (to.matched.some((route) => route.meta.authenticated && !loggedIn)) {
+    next("/");
+  } else {
+    next();
+  }
 });
 
 export default router;
