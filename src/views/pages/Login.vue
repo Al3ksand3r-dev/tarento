@@ -62,6 +62,8 @@ import { ref, computed, watchEffect } from "vue";
 import LoadingScreen from "../../components/layout/LoadingScreen.vue";
 import store from "@/store";
 import bcrypt from "bcryptjs";
+import router from "@/router";
+
 export default {
   components: { LoadingScreen },
   name: "Login",
@@ -118,11 +120,13 @@ export default {
     };
 
     const handleSubmit = () => {
-      setTimeout(() => {
-        store.commit("SET_LOADING");
-      }, 2000);
-      console.log(input.value);
       store.commit("SET_LOADING");
+      setTimeout(() => {
+        store.dispatch("loginUser", input.value).then(() => {
+          router.push({ name: "Dashboard" });
+          store.commit("SET_LOADING");
+        });
+      }, 2000);
     };
 
     return { input, handleSubmit, completed, handleChange };

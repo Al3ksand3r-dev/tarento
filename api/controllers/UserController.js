@@ -28,4 +28,21 @@ module.exports = {
       token,
     };
   },
+  async authenticate({ email, password }) {
+    if (!email || !password) return;
+    const user = await usersDB.findOne({ email });
+    if (!user) return;
+    const token = jwt.sign(
+      {
+        name: user.name,
+        email: user.email,
+      },
+      process.env.SECRET
+    );
+    return {
+      name: user.name,
+      email: user.email,
+      token,
+    };
+  },
 };

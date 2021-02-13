@@ -19,3 +19,7 @@ export const setLoading = () => {
 export const registerUser = (credentials) => {
   return client.post("/api/users", credentials);
 };
+
+export const loginUser = (credentials) => {
+  return client.post("/api/login", credentials);
+};

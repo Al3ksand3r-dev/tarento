@@ -1,5 +1,5 @@
 import { createStore } from "vuex";
-import { registerUser } from "@/Services/UserServices";
+import { registerUser, loginUser } from "@/Services/UserServices";
 import axios from "axios";
 
 export default createStore({
@@ -20,6 +20,11 @@ export default createStore({
   actions: {
     registerUser({ commit }, credentials) {
       return registerUser(credentials).then(({ data }) => {
+        commit("SET_USER_DATA", data);
+      });
+    },
+    loginUser({ commit }, credentials) {
+      return loginUser(credentials).then(({ data }) => {
         commit("SET_USER_DATA", data);
       });
     },
